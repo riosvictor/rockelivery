@@ -4,6 +4,7 @@ defmodule Rockelivery.User do
   import Ecto.Changeset
 
   alias Ecto.Changeset
+  alias Rockelivery.Order
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -20,6 +21,8 @@ defmodule Rockelivery.User do
     field :name, :string
     field :password, :string, virtual: true
     field :password_hash, :string
+
+    has_many :orders, Order
 
     timestamps()
   end
