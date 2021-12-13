@@ -3,7 +3,7 @@ defmodule RockeliveryWeb.ErrorView do
 
   import Ecto.Changeset, only: [traverse_errors: 2]
 
-  alias Ecto.{Changeset, Enum}
+  alias Ecto.Changeset
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
@@ -35,6 +35,6 @@ defmodule RockeliveryWeb.ErrorView do
     end)
   end
 
-  defp translate_value({:parameterized, Enum, _map}), do: ""
+  defp translate_value({:parameterized, Ecto.Enum, _map}), do: ""
   defp translate_value(value), do: to_string(value)
 end
