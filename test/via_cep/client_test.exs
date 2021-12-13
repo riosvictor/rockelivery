@@ -2,8 +2,8 @@ defmodule Rockelivery.ViaCep.ClientTest do
   use ExUnit.Case, async: true
 
   alias Plug.Conn
-  alias Rockelivery.ViaCep.Client
   alias Rockelivery.Error
+  alias Rockelivery.ViaCep.Client
 
   defp endpoint_url(port), do: "http://localhost:#{port}/"
 
@@ -14,7 +14,7 @@ defmodule Rockelivery.ViaCep.ClientTest do
       {:ok, bypass: bypass}
     end
 
-    test "when there is a valida cep, returns the cep info", %{bypass: bypass} do
+    test "when there is a valid cep, returns the cep info", %{bypass: bypass} do
       cep = "01001000"
 
       url = endpoint_url(bypass.port)
