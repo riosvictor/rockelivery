@@ -1,6 +1,15 @@
 {
   "skip_files": [
     "test/support",
-    "lib/rockelivery_web/gettext.ex"
+    "lib/rockelivery_web/gettext.ex",
+    "lib/rockelivery/mailer.ex",
+    "lib/rockelivery/repo.ex",
+    "lib/rockelivery/application.ex",
+    "lib/rockelivery/via_cep/behaviour.ex",
+    "lib/rockelivery_web.ex",
+    "lib/rockelivery_web/endpoint.ex",
+    "lib/rockelivery_web/controllers/welcome_controller.ex",
+    "lib/rockelivery_web/router.ex",
+    "lib/rockelivery_web/telemetry.ex"
   ]
 }
