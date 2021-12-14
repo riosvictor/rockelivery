@@ -8,11 +8,13 @@ defmodule RockeliveryWeb.UsersViewTest do
 
   test "renders create.json" do
     user = build(:user)
+    token = "qwe123"
 
-    response = render(UsersView, "create.json", user: user)
+    response = render(UsersView, "create.json", token: token, user: user)
 
     assert %{
              message: "User created!",
+             token: "qwe123",
              user: %Rockelivery.User{
                address: "Rua de cima, 89",
                age: 27,

@@ -8,14 +8,26 @@ defmodule RockeliveryWeb.Router do
     plug UUIDChecker
   end
 
+  pipeline :auth do
+    plug RockeliveryWeb.Auth.Pipeline
+  end
+
   scope "/api", RockeliveryWeb do
     pipe_through :api
 
     get "/", WelcomeController, :index
 
-    resources "/users", UsersController, except: [:new, :edit]
+    post "/users", UsersController, :create
+    post "/users/signin", UsersController, :sign_in
+  end
+
+  scope "/api", RockeliveryWeb do
+    pipe_through [:api, :auth]
+
+    resources "/users", UsersController, except: [:new, :edit, :create]
 
     post "/items", ItemsController, :create
+
     post "/orders", OrdersController, :create
   end
 

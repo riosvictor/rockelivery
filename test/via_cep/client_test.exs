@@ -35,7 +35,7 @@ defmodule Rockelivery.ViaCep.ClientTest do
       Bypass.expect(bypass, "GET", "#{cep}/json", fn conn ->
         conn
         |> Conn.put_resp_header("content-type", "application/json")
-        |> Conn.resp(200, body)
+        |> Conn.resp(:ok, body)
       end)
 
       response = Client.get_cep_info(url, cep)
@@ -64,7 +64,7 @@ defmodule Rockelivery.ViaCep.ClientTest do
       url = endpoint_url(bypass.port)
 
       Bypass.expect(bypass, "GET", "#{cep}/json", fn conn ->
-        Conn.resp(conn, 400, "")
+        Conn.resp(conn, :bad_request, "")
       end)
 
       response = Client.get_cep_info(url, cep)
@@ -92,7 +92,7 @@ defmodule Rockelivery.ViaCep.ClientTest do
       Bypass.expect(bypass, "GET", "#{cep}/json", fn conn ->
         conn
         |> Conn.put_resp_header("content-type", "application/json")
-        |> Conn.resp(200, body)
+        |> Conn.resp(:ok, body)
       end)
 
       response = Client.get_cep_info(url, cep)
