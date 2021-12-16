@@ -7,6 +7,7 @@ defmodule Rockelivery.Order do
   alias Rockelivery.{Item, User}
 
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
 
   @required_fields [:address, :payment_method, :user_id]
   @payment_methods [:money, :debit_card, :credit_card, :pix]
@@ -29,7 +30,5 @@ defmodule Rockelivery.Order do
     |> cast(params, @required_fields)
     |> validate_required(@required_fields)
     |> put_assoc(:items, items)
-    |> validate_length(:description, min: 6)
-    |> validate_number(:price, greater_than: 0)
   end
 end
