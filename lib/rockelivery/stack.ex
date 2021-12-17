@@ -6,7 +6,7 @@ defmodule Rockelivery.Stack do
   # e a de envio das mensagens (cliente)
 
   # Client
-  def start_lint(initial_stack) when is_list(initial_stack) do
+  def start_link(initial_stack) when is_list(initial_stack) do
     GenServer.start_link(__MODULE__, initial_stack)
   end
 
