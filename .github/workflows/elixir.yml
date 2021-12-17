@@ -64,6 +64,7 @@ jobs:
       run: mix test
 
   deploy:
+    name: Deploy to Gigalixir
     needs: build # Will only run if the test job succeeds
     if: github.ref == 'refs/heads/main' # Only run this job if it is on the main branch
 
@@ -79,7 +80,7 @@ jobs:
         with:
           python-version: 3.8.1
           
-      - uses: mhanberg/gigalixir-action@<current release>
+      - uses: mhanberg/gigalixir-action@v0.4.0
         with:
           # APP_SUBFOLDER: my-app-subfolder  # Add only if you want to deploy an app that is not at the root of your repository
           GIGALIXIR_APP: soggy-mammoth-barasingha # Feel free to also put this in your secrets
