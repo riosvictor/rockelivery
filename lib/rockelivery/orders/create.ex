@@ -27,7 +27,6 @@ defmodule Rockelivery.Orders.Create do
   defp handle_insert({:ok, %Order{}} = order), do: order
 
   defp handle_insert({:error, result}) do
-    IO.inspect(result)
     {:error, Error.build(:bad_request, result)}
   end
 end
